@@ -1,0 +1,43 @@
+﻿
+@model EXU1_GONZALEZ.Models.PensionViewModel
+
+<h1>Calculadora de descuentos</h1>
+
+<form action="/Process" method="post">
+    <div>
+        <label for="categoria">Categoría:</label>
+        <select id="categoria" name="categoria">
+            <option value="1">A</option>
+            <option value="2">B</option>
+            <option value="3">C</option>
+            <option value="4">D</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="promedio">Promedio:</label>
+        <input type="text" id="promedio" name="promedio" />
+    </div>
+
+    <div>
+        <label for="cuotasPagadas">Cuotas pagadas:</label>
+        <select id="cuotasPagadas" name="cuotasPagadas">
+            <option value="5">5</option>
+            <option value="4">4</option>
+            <option value="3">3</option>
+        </select>
+    </div>
+
+    <input type="submit" value="Calcular" />
+</form>
+
+@if (Model.Descuento != null)
+{
+    <p>
+        <strong>Descuento:</strong> @Model.Descuento
+    </p>
+
+    <p>
+        <strong>Nueva pensión:</strong> @Model.NuevaPensión
+    </p>
+}

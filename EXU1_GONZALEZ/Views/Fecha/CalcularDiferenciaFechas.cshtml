@@ -1,0 +1,41 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CalcularDiferenciaFechas</title>
+</head>
+<body>
+    <div>
+
+
+        <h2>Calcular Diferencia de Fechas</h2>
+
+        @if (ViewBag.DiferenciaDias != null)
+        {
+            <p>La diferencia entre la fecha actual y la fecha seleccionada es de @ViewBag.DiferenciaDias días.</p>
+        }
+
+        @if (ViewBag.Error != null)
+        {
+            <p class="text-danger">@ViewBag.Error</p>
+        }
+
+        @using (Html.BeginForm("CalcularDiferenciaFechas", "Fecha", FormMethod.Post))
+        {
+            <div class="form-group">
+                @Html.Label("Fecha Seleccionada (dd/MM/yyyy):")
+                @Html.TextBox("fechaUsuarioStr", null, new { @class = "form-control" })
+            </div>
+            <button type="submit" class="btn btn-primary">Calcular Diferencia</button>
+        }
+
+
+    </div>
+</body>
+</html>
